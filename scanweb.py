@@ -6,8 +6,7 @@ import os
 
 print("Converting Website -> .csv ...")
 
-# url = 'https://www.siit.tu.ac.th/academics_school.php?id=4&ssid=42'
-url = 'http://samtsehss.edu.bt/'
+url = 'https://www.siit.tu.ac.th/academics_school.php?id=4&ssid=42'
 
 list = []
 PII_Inventory = []
