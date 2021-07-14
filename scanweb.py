@@ -35,7 +35,8 @@ PII_Inventory.append(info)
 
 report = pd.DataFrame(PII_Inventory)
 
-report.to_csv('C:/Users/Tandin Dorji/Desktop/Mock/scan/Mock_report(html).csv')
+report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html/Mock_report(html).csv')
 
 print('[complete]')
-os.system("python scanfile2.py")
+os.system("python scanweb2.py")
+
