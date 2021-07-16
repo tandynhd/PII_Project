@@ -24,6 +24,8 @@ data_source=[]
 pii_type = []
 for i in range(len(onlyfiles)):
     if ((onlyfiles[i][-5:]) != '.xlsx'):
+        if (os.stat(APP_FOLDER +'/'+onlyfiles[i]).st_size) == 0:
+            continue
         df = read_csv(APP_FOLDER +'/'+onlyfiles[i])
         for col in columns: 
             for index in df.index: 
@@ -39,6 +41,8 @@ for i in range(len(onlyfiles)):
                     'confidence': response[0].score,
                     'File': onlyfiles[i]})
     elif ((onlyfiles[i][-4:]) != '.csv'): 
+        if (os.stat(APP_FOLDER +'/'+onlyfiles[i]).st_size) == 0:
+            continue
         df = read_excel(APP_FOLDER +'/'+onlyfiles[i])
         for col in columns: 
             for index in df.index: 
