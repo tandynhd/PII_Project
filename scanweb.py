@@ -3,10 +3,12 @@ from bs4.element import Comment
 import pandas as pd
 import urllib.request
 import os
+from test import weblink
 
 print("Converting Website -> .csv ...")
 
-url = 'https://www.siit.tu.ac.th/academics_school.php?id=4&ssid=42'
+#url = 'https://www.siit.tu.ac.th/academics_school.php?id=4&ssid=42'
+url = weblink
 
 list = []
 PII_Inventory = []

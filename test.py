@@ -1,65 +1,65 @@
-from pandas import *
-from presidio_analyzer.analyzer_engine import AnalyzerEngine
-import customreg
+from flask import Flask, render_template, request, redirect, url_for
 import os
 
-engine = AnalyzerEngine()
-print('Scanning for PII data...')
+global weblink
 
-engine.registry.add_recognizer(customreg.Th_passport_recognizer())
-engine.registry.add_recognizer(customreg.Th_phone_recognizer())
-engine.registry.add_recognizer(customreg.Th_ID_recognizer())
 
-APP_FOLDER = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/db/scan'
+app = Flask(__name__)
 
-onlyfiles = next(os.walk(APP_FOLDER))[2] #dir is your directory path as string
 
-#text = 'citizen id  083-0174456 AA1254846 1-2001-01756-87-5'
-df = read_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/db/scan/'+onlyfiles[0]) 
-columns = list(df)
-pii_inventory = []
-#d=[]
-pii_categories =[]
-data_source=[]
-pii_type = []
-for i in range(len(onlyfiles)):
-    if ((onlyfiles[i][-5:]) != '.xlsx'):
-        if (os.stat(APP_FOLDER +'/'+onlyfiles[i]).st_size) == 0:
-            break
-        df = read_csv(APP_FOLDER +'/'+onlyfiles[i])
-        for col in columns: 
-            for index in df.index: 
-                response = engine.analyze(correlation_id=0,
-                                        text = str(df[col][index]),
-                                        entities=[],language='en',
-                                        #all_fields=True,
-                                        score_threshold=0.6,)
-                if (response != []):
-                    pii_inventory.append({'type': response[0].entity_type,
-                    'context':str(df[col][index]),
-                    'position': "col: {}, row: {}".format(col,index),
-                    'confidence': response[0].score,
-                    'File': onlyfiles[i]})
-    elif ((onlyfiles[i][-4:]) != '.csv'): 
-        df = read_excel(APP_FOLDER +'/'+onlyfiles[i])
-        for col in columns: 
-            for index in df.index: 
-                response = engine.analyze(correlation_id=0,
-                                        text = str(df[col][index]),
-                                        entities=[],language='en',
-                                        #all_fields=True,
-                                        score_threshold=0.6,)
-                if (response != []):
-                    pii_inventory.append({'type': response[0].entity_type,
-                    'context':str(df[col][index]),
-                    'position': "col: {}, row: {}".format(col,index),
-                    'confidence': response[0].score,
-                    'File': onlyfiles[i]})
+@app.route('/')
+def index():
+    return render_template('main.html')
+
+app.config["FILE_UPLOADS"] = "C:/Users/Tandin Dorji/Desktop/PII_Project/Mock"
+
+@app.route("/upload", methods=["GET", "POST"])
+def upload_file():
+
+    if request.method == "POST":
+        if request.files:
+
+            try:
+                for file in request.files.getlist('file'):
+                    file.save(os.path.join(app.config["FILE_UPLOADS"], file.filename))
+                    print("file saved: "+file.filename)
     
-    data_source.append(onlyfiles[i])        
-report = DataFrame(pii_inventory)
+ 
+            except:
+                weblink = request.form["web-scan"]
+                print(weblink)
+                return(weblink)
+                os.system("python scanweb.py")
+            
 
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/report/mock_report(db).csv')
+            return redirect(request.url)
 
-print(data_source)
-print('[complete]')
+
+    return render_template("upload.html")
+
+# @app.route('/home')
+# def home():
+#     return render_template('home2.html')
+@app.route('/view-report')
+def piiView():
+
+    
+    return render_template('ViewReport.html')
+
+# @app.route('/view-report2')
+# def piiView2():
+#     return render_template('ViewReport2.html')
+
+# @app.route('/pii_report')
+# def piiReport():
+#     return render_template('report.html')
+
+# @app.route('/file-cs-check', methods=['POST'])
+# def fileCheck():
+#     uploaded_file = request.files['file']
+#     if uploaded_file != '':
+#         data_name = uploaded_file.save(uploaded_file.filename)
+#     return redirect(url_for('index'))
+
+if __name__ == "__main__":
+    app.run(debug=True)
