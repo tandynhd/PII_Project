@@ -13,7 +13,7 @@ data_source=[]
 
 for index in range (len(onlyfiles)):
     i = 0
-    PDFFile = open('C:/Users/Tandin Dorji/Desktop/Mock/pdf/'+onlyfiles[index], "rb")
+    PDFFile = open('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/pdf/'+onlyfiles[index], "rb")
     pdfRead = p2.PdfFileReader(PDFFile)
     while i < pdfRead.getNumPages():
         pageinfo = pdfRead.getPage(i)

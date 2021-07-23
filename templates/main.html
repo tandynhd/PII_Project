@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{url_for('static',filename='style/style1.css')}}">
         <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 
-        <script>
+        <!-- <script>
             function optSelect(){
                 if (document.getElementById("option1").checked){
                     document.getElementById("choice1").style.display='block';
@@ -44,47 +44,11 @@
         <script type="text/javascript">    
             var path = (window.URL || window.webkitURL).createObjectURL(file);
             console.log('path', path);
-        </script>
+        </script> -->
     </head>
 
     <body>
         <h1 class="container p-3 mb-2"> Welcome,<br> What can we help you today</h1>
-        <!--Scanning-->
-        <div class="container rounded p-3 mb-2 bg-info">
-            <div class="d-flex justify-content-between">
-                <h2>Scan</h2>
-                <input class="btn btn-success btn-lg" type="submit" value="Scan">
-                <!--img src="{{url_for('static', filename='search.png', width=5, height=5, quality=95)}}" align="middle"-->
-            </div>
-            <br>
-            <div class="p-3 mb-2 bg-white">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="option1" value="option1" onclick="optSelect()">
-                    <label class="form-check-label" for="inlineRadio1">File</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="option2" value="option2" onclick="optSelect()">
-                    <label class="form-check-label" for="inlineRadio2">Database</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="option3" value="option3" onclick="optSelect()">
-                    <label class="form-check-label" for="inlineRadio3">Webpage</label>
-                </div>
-                <br> 
-                <!-- Input Field-->
-                <form class="reveal">
-                    <div class="form-group col-md-6" id="choice1" style="display:none">
-                        <input type="file" class="form-control-file" id="file-scan" webkitdirectory mozdirectory multiple>
-                    </div>
-                    <div class="form-group col-md-6" id="choice2" style="display:none">
-                        <input type="file" class="form-control-file" id="db-scan" webkitdirectory mozdirectory multiple>
-                    </div>
-                    <div class="form-group col-md-6" id="choice3" style="display:none">
-                        <input type="text" class="form-control" id="web-scan" placeholder="insert your url">
-                    </div>
-                </form>                      
-            </div>
-        </div>
         
         <!--PII Inventory-->
         <div class="container rounded bg-info p-3 mb-2">

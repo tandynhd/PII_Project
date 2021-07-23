@@ -3,12 +3,20 @@ from bs4.element import Comment
 import pandas as pd
 import urllib.request
 import os
-from test import weblink
+
+from pandas.io.formats.format import IntArrayFormatter
 
 print("Converting Website -> .csv ...")
-
+weblink = []
+location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html'
+with open(location+"/weblink.txt", 'r+') as file:
+    pageinfo = file.read()
+    print(pageinfo)
+    weblink.append(pageinfo)
+    print(weblink)
+url = weblink[0]
+print(url)
 #url = 'https://www.siit.tu.ac.th/academics_school.php?id=4&ssid=42'
-url = weblink
 
 list = []
 PII_Inventory = []
@@ -28,7 +36,6 @@ def text_from_html(body):
     return u" ".join(t.strip() for t in visible_texts)
 
 html = urllib.request.urlopen(url).read()
-#print(text_from_html(html))
 
 list.append(text_from_html(html))
 text = list[0]
@@ -37,7 +44,7 @@ PII_Inventory.append(info)
 
 report = pd.DataFrame(PII_Inventory)
 
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html/Mock_report(html).csv')
+report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html/scan/Mock_report(html).csv')
 
 print('[complete]')
 os.system("python scanweb2.py")

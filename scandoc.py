@@ -13,7 +13,7 @@ PII_Inventory = []
 data_source=[]
 
 for i in range(len(onlyfiles)):
-    document = Document('C:/Users/Tandin Dorji/Desktop/Mock/doc/'+onlyfiles[i])
+    document = Document('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/doc/'+onlyfiles[i])
     #index= 0
     for para in document.paragraphs:
         #index+=1
