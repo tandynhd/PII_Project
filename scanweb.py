@@ -1,51 +1,67 @@
-from bs4 import BeautifulSoup
-from bs4.element import Comment
-import pandas as pd
-import urllib.request
+from pandas import *
+from presidio_analyzer.analyzer_engine import AnalyzerEngine
+import customreg
 import os
 
-from pandas.io.formats.format import IntArrayFormatter
+engine = AnalyzerEngine()
+print('Scanning for PII data...')
 
-print("Converting Website -> .csv ...")
-weblink = []
-location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html'
-with open(location+"/weblink.txt", 'r+') as file:
-    pageinfo = file.read()
-    print(pageinfo)
-    weblink.append(pageinfo)
-    print(weblink)
-url = weblink[0]
-print(url)
-#url = 'https://www.siit.tu.ac.th/academics_school.php?id=4&ssid=42'
+engine.registry.add_recognizer(customreg.Th_passport_recognizer())
+engine.registry.add_recognizer(customreg.Th_phone_recognizer())
+engine.registry.add_recognizer(customreg.Th_ID_recognizer())
 
-list = []
-PII_Inventory = []
+APP_FOLDER = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html'
 
-def tag_visible(element):
-    if element.parent.name in ['style', 'script', 'head', 'title', 'meta', '[document]']:
-        return False
-    if isinstance(element, Comment):
-        return False
-    return True
+onlyfiles = next(os.walk(APP_FOLDER))[2] #dir is your directory path as string
 
+#text = 'citizen id  083-0174456 AA1254846 1-2001-01756-87-5'
+df = read_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html/'+onlyfiles[0]) 
+columns = list(df)
+pii_inventory = []
+#d=[]
+pii_categories =[]
+data_source=[]
+pii_type = []
+for i in range(len(onlyfiles)):
+    if ((onlyfiles[i][-5:]) != '.xlsx'):
+        if (os.stat(APP_FOLDER +'/'+onlyfiles[i]).st_size) == 0:
+            continue
+        df = read_csv(APP_FOLDER +'/'+onlyfiles[i])
+        for col in columns: 
+            for index in df.index: 
+                response = engine.analyze(correlation_id=0,
+                                        text = str(df[col][index]),
+                                        entities=[],language='en',
+                                        #all_fields=True,
+                                        score_threshold=0.6,)
+                if (response != []):
+                    pii_inventory.append({'type': response[0].entity_type,
+                    'context':str(df[col][index]),
+                    'position': "col: {}, row: {}".format(col,index),
+                    'confidence': response[0].score,
+                    'File': onlyfiles[i]})
+    elif ((onlyfiles[i][-4:]) != '.csv'): 
+        df = read_excel(APP_FOLDER +'/'+onlyfiles[i])
+        for col in columns: 
+            for index in df.index: 
+                response = engine.analyze(correlation_id=0,
+                                        text = str(df[col][index]),
+                                        entities=[],language='en',
+                                        #all_fields=True,
+                                        score_threshold=0.6,)
+                if (response != []):
+                    pii_inventory.append({'type': response[0].entity_type,
+                    'context':str(df[col][index]),
+                    'position': "col: {}, row: {}".format(col,index),
+                    'confidence': response[0].score,
+                    'File': onlyfiles[i]})
+    
+    data_source.append(onlyfiles[i])        
+report = DataFrame(pii_inventory)
 
-def text_from_html(body):
-    soup = BeautifulSoup(body, 'html.parser')
-    texts = soup.findAll(text=True)
-    visible_texts = filter(tag_visible, texts)
-    return u" ".join(t.strip() for t in visible_texts)
+report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/report/mock_report(html).csv')
 
-html = urllib.request.urlopen(url).read()
+os.remove(os.path.join(APP_FOLDER,'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html/Mock_report(html).csv'))
 
-list.append(text_from_html(html))
-text = list[0]
-info = text.split(" ")
-PII_Inventory.append(info)
-
-report = pd.DataFrame(PII_Inventory)
-
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html/scan/Mock_report(html).csv')
-
+print(data_source)
 print('[complete]')
-os.system("python scanweb2.py")
-

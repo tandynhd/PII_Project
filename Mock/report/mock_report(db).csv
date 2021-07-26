@@ -1,0 +1,25 @@
+,type,context,position,confidence,File
+0,PERSON,Sam,"col: Sam, row: 0",0.85,Mock_report(test - Copy.db_employees).csv
+1,PERSON,Jill,"col: Sam, row: 1",0.85,Mock_report(test - Copy.db_employees).csv
+2,PERSON,Bill,"col: Sam, row: 2",0.85,Mock_report(test - Copy.db_employees).csv
+3,PERSON,Bill,"col: Sam, row: 3",0.85,Mock_report(test - Copy.db_employees).csv
+4,DATE_TIME,24/01/2001,"col: 24/01/2001, row: 0",0.85,Mock_report(test - Copy.db_employees).csv
+5,DATE_TIME,12/01/2001,"col: 24/01/2001, row: 1",0.6,Mock_report(test - Copy.db_employees).csv
+6,DATE_TIME,12/07/2009,"col: 24/01/2001, row: 2",0.85,Mock_report(test - Copy.db_employees).csv
+7,DATE_TIME,12/07/2009,"col: 24/01/2001, row: 3",0.85,Mock_report(test - Copy.db_employees).csv
+8,MEDICAL_LICENSE,BA1254846,"col: BA1254846, row: 0",1.0,Mock_report(test - Copy.db_employees).csv
+9,MEDICAL_LICENSE,DA1254846,"col: BA1254846, row: 1",1.0,Mock_report(test - Copy.db_employees).csv
+10,MEDICAL_LICENSE,FA1254846,"col: BA1254846, row: 2",1.0,Mock_report(test - Copy.db_employees).csv
+11,MEDICAL_LICENSE,FA1254846,"col: BA1254846, row: 3",1.0,Mock_report(test - Copy.db_employees).csv
+12,TH_PHONE_NUMBER,993-122-1234,"col: 993-122-1234, row: 0",0.9,Mock_report(test - Copy.db_employees).csv
+13,TH_PHONE_NUMBER,993-992-1234,"col: 993-122-1234, row: 1",0.9,Mock_report(test - Copy.db_employees).csv
+14,TH_PHONE_NUMBER,993-992-9934,"col: 993-122-1234, row: 2",0.9,Mock_report(test - Copy.db_employees).csv
+15,TH_PHONE_NUMBER,993-992-9934,"col: 993-122-1234, row: 3",0.9,Mock_report(test - Copy.db_employees).csv
+16,EMAIL_ADDRESS,adef@gmail.com,"col: adef@gmail.com, row: 0",1.0,Mock_report(test - Copy.db_employees).csv
+17,EMAIL_ADDRESS,sdgsf@gmail.com,"col: adef@gmail.com, row: 1",1.0,Mock_report(test - Copy.db_employees).csv
+18,EMAIL_ADDRESS,ss2313ff@gmail.com,"col: adef@gmail.com, row: 2",1.0,Mock_report(test - Copy.db_employees).csv
+19,EMAIL_ADDRESS,ss2313ff@gmail.com,"col: adef@gmail.com, row: 3",1.0,Mock_report(test - Copy.db_employees).csv
+20,LOCATION,Canada,"col: Canada, row: 0",0.85,Mock_report(test - Copy.db_employees).csv
+21,LOCATION,USA,"col: Canada, row: 1",0.85,Mock_report(test - Copy.db_employees).csv
+22,LOCATION,UK,"col: Canada, row: 2",0.85,Mock_report(test - Copy.db_employees).csv
+23,LOCATION,UK,"col: Canada, row: 3",0.85,Mock_report(test - Copy.db_employees).csv

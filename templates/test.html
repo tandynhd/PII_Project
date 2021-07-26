@@ -1,0 +1,25 @@
+{%extends "base.html"%}
+
+{%block title%}test{%endblock%}
+
+
+
+{%block content%}
+<div class="container rounded bg-info p-3 mb-2">
+    <div class="d-flex justify-content-between">
+        <h1>whats up </h1>
+        <form>
+            <button type="submit" class="btn btn-success btn-lg" formaction="{{ url_for('upload_file')}}">Scan</button>
+            <button type="submit" class="btn btn-success btn-lg" formaction="{{ url_for('piiView')}}">View Reports</button>
+        </form>            
+    </div>
+    <!-- <br>
+    <div class="container bg-white p-3 mb-2">
+        <button type="button" class="btn btn-success badge rounded-pill"><i class="fa fa-flag"></i></button>
+        <span> 26 consents found in Consent Management System</span><br>
+        <button type="button" class="btn btn-danger badge rounded-pill"><i class="fa fa-flag"></i></button>
+        <span> 7 consents not found in Consent Management System</span> -->
+    </div>
+</div>   
+
+{%endblock%}

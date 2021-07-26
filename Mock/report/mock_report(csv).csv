@@ -1,0 +1,7 @@
+,type,context,position,confidence,File
+0,PERSON,Tandin Wangchen,"col: Name, row: 0",0.85,test - Copy.csv
+1,PERSON,Ted Monty,"col: Name, row: 1",0.85,test - Copy.csv
+2,TH_PASSPORT,AB1234527,"col: Passport, row: 0",0.6,test - Copy.csv
+3,PERSON,BC1233566,"col: Passport, row: 1",0.85,test - Copy.csv
+4,TH_PHONE_NUMBER,123-122-1234,"col: Phone, row: 0",0.9,test - Copy.csv
+5,PHONE_NUMBER,123-123-12345,"col: Phone, row: 1",0.7,test - Copy.csv

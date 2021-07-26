@@ -1,0 +1,249 @@
+,type,context,position,confidence,File
+0,LOCATION,Srijuntongsiri,"col: 2, row: 0",0.85,Mock_report(txt).csv
+1,DOMAIN_NAME,"Curriculum
+E-mail
+:
+gunsiit.tu.ac.th
+Phone","col: 16, row: 0",1.0,Mock_report(txt).csv
+2,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 17, row: 0",0.85,Mock_report(txt).csv
+3,PERSON,Stanislav,"col: 20, row: 0",0.85,Mock_report(txt).csv
+4,DOMAIN_NAME,"Makhanov
+Professor
+E-mail
+:
+makhanovsiit.tu.ac.th
+Phone","col: 22, row: 0",1.0,Mock_report(txt).csv
+5,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 23, row: 0",0.85,Mock_report(txt).csv
+6,PERSON,Thanaruk,"col: 26, row: 0",0.85,Mock_report(txt).csv
+7,DOMAIN_NAME,"Things
+E-mail
+:
+thanaruksiit.tu.ac.th
+Phone","col: 39, row: 0",1.0,Mock_report(txt).csv
+8,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 40, row: 0",0.85,Mock_report(txt).csv
+9,PERSON,Nantajeewarawat,"col: 44, row: 0",0.85,Mock_report(txt).csv
+10,DOMAIN_NAME,"Affairs
+E-mail
+:
+ekawitsiit.tu.ac.th
+Phone","col: 50, row: 0",1.0,Mock_report(txt).csv
+11,PERSON,"Rangsit
+:
++66-2-986-9009","col: 51, row: 0",0.85,Mock_report(txt).csv
+12,PERSON,"Bangkadi
+:
++66-2-501-3505~20","col: 53, row: 0",0.85,Mock_report(txt).csv
+13,PERSON,Chalie,"col: 57, row: 0",0.85,Mock_report(txt).csv
+14,PERSON,"Charoenlarpnopparut
+Associate","col: 58, row: 0",0.85,Mock_report(txt).csv
+15,DOMAIN_NAME,"Professor
+E-mail
+:
+chaliesiit.tu.ac.th
+Phone","col: 59, row: 0",1.0,Mock_report(txt).csv
+16,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 60, row: 0",0.85,Mock_report(txt).csv
+17,LOCATION,Nirattaya,"col: 63, row: 0",0.85,Mock_report(txt).csv
+18,DOMAIN_NAME,"Professor
+E-mail
+:
+nirattayasiit.tu.ac.th
+Phone","col: 65, row: 0",1.0,Mock_report(txt).csv
+19,PERSON,"Rangsit
+:
++66-2-986-9009,","col: 66, row: 0",0.85,Mock_report(txt).csv
+20,PERSON,"Kondo
+Associate","col: 72, row: 0",0.85,Mock_report(txt).csv
+21,DOMAIN_NAME,"Professor
+E-mail
+:
+tkondosiit.tu.ac.th
+Phone","col: 73, row: 0",1.0,Mock_report(txt).csv
+22,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 74, row: 0",0.85,Mock_report(txt).csv
+23,PERSON,Waree,"col: 77, row: 0",0.85,Mock_report(txt).csv
+24,PERSON,Kongprawechnon,"col: 78, row: 0",0.85,Mock_report(txt).csv
+25,DOMAIN_NAME,"Relations
+E-mail
+:
+wareesiit.tu.ac.th
+Phone","col: 86, row: 0",1.0,Mock_report(txt).csv
+26,PERSON,"Rangsit
+:
++66-2-986-9009,","col: 87, row: 0",0.85,Mock_report(txt).csv
+27,PERSON,"Bangkadi
+:
++66-2-501-3505~20","col: 92, row: 0",0.85,Mock_report(txt).csv
+28,PERSON,(BKD),"col: 96, row: 0",0.85,Mock_report(txt).csv
+29,DOMAIN_NAME,"Professor
+E-mail
+:
+banluesiit.tu.ac.th
+Phone","col: 102, row: 0",1.0,Mock_report(txt).csv
+30,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 103, row: 0",0.85,Mock_report(txt).csv
+31,PERSON,Cholwich,"col: 106, row: 0",0.85,Mock_report(txt).csv
+32,DOMAIN_NAME,"Professor
+E-mail
+:
+cholwichsiit.tu.ac.th
+Phone","col: 108, row: 0",1.0,Mock_report(txt).csv
+33,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 109, row: 0",0.85,Mock_report(txt).csv
+34,DATE_TIME,"Extension
+:
+5009
+
+more...","col: 110, row: 0",0.85,Mock_report(txt).csv
+35,LOCATION,Itthisek,"col: 112, row: 0",0.85,Mock_report(txt).csv
+36,LOCATION,Nilkhamhang,"col: 113, row: 0",0.85,Mock_report(txt).csv
+37,DOMAIN_NAME,"Relations
+E-mail
+:
+itthiseksiit.tu.ac.th
+Phone","col: 122, row: 0",1.0,Mock_report(txt).csv
+38,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 123, row: 0",0.85,Mock_report(txt).csv
+39,LOCATION,Pakinee,"col: 126, row: 0",0.85,Mock_report(txt).csv
+40,DOMAIN_NAME,"Curriculum
+E-mail
+:
+pakineesiit.tu.ac.th
+Phone","col: 139, row: 0",1.0,Mock_report(txt).csv
+41,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 140, row: 0",0.85,Mock_report(txt).csv
+42,PERSON,Suksompong,"col: 144, row: 0",0.85,Mock_report(txt).csv
+43,DOMAIN_NAME,"Program
+E-mail
+:
+prapunsiit.tu.ac.th
+Phone","col: 150, row: 0",1.0,Mock_report(txt).csv
+44,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 151, row: 0",0.85,Mock_report(txt).csv
+45,DOMAIN_NAME,"Professor
+E-mail
+:
+somsaksiit.tu.ac.th
+Phone","col: 156, row: 0",1.0,Mock_report(txt).csv
+46,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 157, row: 0",0.85,Mock_report(txt).csv
+47,PERSON,Teerayut,"col: 160, row: 0",0.85,Mock_report(txt).csv
+48,DOMAIN_NAME,"Professor
+E-mail
+:
+teerayutsiit.tu.ac.th
+Phone","col: 162, row: 0",1.0,Mock_report(txt).csv
+49,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 163, row: 0",0.85,Mock_report(txt).csv
+50,PERSON,Nguyen,"col: 166, row: 0",0.85,Mock_report(txt).csv
+51,PERSON,Duy,"col: 167, row: 0",0.85,Mock_report(txt).csv
+52,DOMAIN_NAME,"Professor
+E-mail
+:
+hungsiit.tu.ac.th
+Phone","col: 169, row: 0",1.0,Mock_report(txt).csv
+53,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 170, row: 0",0.85,Mock_report(txt).csv
+54,DOMAIN_NAME,"Professor
+E-mail
+:
+sasiporn.ussiit.tu.ac.th
+Phone","col: 175, row: 0",1.0,Mock_report(txt).csv
+55,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 176, row: 0",0.85,Mock_report(txt).csv
+56,PERSON,Seksan,"col: 179, row: 0",0.85,Mock_report(txt).csv
+57,DOMAIN_NAME,"Laitrakun
+Lecturer
+E-mail
+:
+seksansiit.tu.ac.th
+Phone","col: 180, row: 0",1.0,Mock_report(txt).csv
+58,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 181, row: 0",0.85,Mock_report(txt).csv
+59,DOMAIN_NAME,"Deepaisarn
+Lecturer
+E-mail
+:
+somrudeesiit.tu.ac.th
+Phone","col: 185, row: 0",1.0,Mock_report(txt).csv
+60,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 186, row: 0",0.85,Mock_report(txt).csv
+61,DOMAIN_NAME,"Center
+E-mail
+:
+somchartsiit.tu.ac.th
+Phone","col: 196, row: 0",1.0,Mock_report(txt).csv
+62,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 197, row: 0",0.85,Mock_report(txt).csv
+63,PERSON,"Trirathanun
+Secretary,","col: 201, row: 0",0.85,Mock_report(txt).csv
+64,EMAIL_ADDRESS,"ICT
+E-mail
+:
+naratsita@siit.tu.ac.th
+Phone","col: 204, row: 0",1.0,Mock_report(txt).csv
+65,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 205, row: 0",0.85,Mock_report(txt).csv
+66,PERSON,Nichcha,"col: 207, row: 0",0.85,Mock_report(txt).csv
+67,PERSON,"Puakanokhiran
+Secretary,","col: 208, row: 0",0.85,Mock_report(txt).csv
+68,EMAIL_ADDRESS,"ICT
+E-mail
+:
+nichcha@siit.tu.ac.th
+Phone","col: 211, row: 0",1.0,Mock_report(txt).csv
+69,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 212, row: 0",0.85,Mock_report(txt).csv
+70,PERSON,Sirijorn,"col: 215, row: 0",0.85,Mock_report(txt).csv
+71,PERSON,"Mahavan
+Secretary,","col: 216, row: 0",0.85,Mock_report(txt).csv
+72,EMAIL_ADDRESS,"ICT
+E-mail
+:
+sirinart@siit.tu.ac.th
+Phone","col: 219, row: 0",1.0,Mock_report(txt).csv
+73,PERSON,"Bangkadi
+:
++66-2-501-3505~20
+Phone","col: 220, row: 0",0.85,Mock_report(txt).csv
