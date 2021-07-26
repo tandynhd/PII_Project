@@ -1,6 +1,7 @@
-from test import PII_Data
+# from test import PII_Data
 from flask import Flask, render_template, request, redirect, url_for
-import os, csv
+import os
+import csv
 from pandas import *
 
 from bs4 import BeautifulSoup
@@ -13,20 +14,38 @@ from pandas.io.formats.format import IntArrayFormatter
 
 app = Flask(__name__)
 
+location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/'
+if not os.path.exists(location+"files"):
+    os.mkdir(location+"files")
+if not os.path.exists(location+"files/csv"):
+    os.mkdir(location+"files/csv")
+if not os.path.exists(location+"files/db"):
+    os.mkdir(location+"files/db")
+if not os.path.exists(location+"files/doc"):
+    os.mkdir(location+"files/doc")
+if not os.path.exists(location+"files/pdf"):
+    os.mkdir(location+"files/pdf")
+if not os.path.exists(location+"files/report"):
+    os.mkdir(location+"files/report")
+if not os.path.exists(location+"files/txt"):
+    os.mkdir(location+"files/txt")
+if not os.path.exists(location+"files/html"):
+    os.mkdir(location+"files/html")
+
 @app.route('/')
 def index():
-    location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/report'
+    location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/report'
 
     onlyfiles = next(os.walk(location))[2]
     PII_Data = []
     for i in range(len(onlyfiles)):
-        file = open("C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/report/"+onlyfiles[i])
+        file = open("C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/"+onlyfiles[i])
         reader = csv.reader(file)
         lines = len(list(reader))
         PII_Data.append("There are "+str(lines-1)+" PII data in "+onlyfiles[i])
     return render_template('index.html', data=PII_Data)
 
-app.config["FILE_UPLOADS"] = "C:/Users/Tandin Dorji/Desktop/PII_Project/Mock"
+app.config["FILE_UPLOADS"] = "C:/Users/Tandin Dorji/Desktop/PII_Project/files"
 app.config["FILE_EXTENSIONS"] = ["CSV", "XLSX", "DB", "DOCX", "DOC", "PDF", "TXT"]
 
 def allowed_files(filename):
@@ -75,7 +94,7 @@ def upload_file():
 
                 report = pd.DataFrame(PII_Inventory)
 
-                report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html/Mock_report(html).csv')
+                report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/html/Mock_report(html).csv')
 
                 print('[complete]')
                 os.system("python scanweb.py")

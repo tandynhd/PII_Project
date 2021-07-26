@@ -10,12 +10,12 @@ engine.registry.add_recognizer(customreg.Th_passport_recognizer())
 engine.registry.add_recognizer(customreg.Th_phone_recognizer())
 engine.registry.add_recognizer(customreg.Th_ID_recognizer())
 
-APP_FOLDER = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html'
+APP_FOLDER = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/html'
 
 onlyfiles = next(os.walk(APP_FOLDER))[2] #dir is your directory path as string
 
 #text = 'citizen id  083-0174456 AA1254846 1-2001-01756-87-5'
-df = read_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html/'+onlyfiles[0]) 
+df = read_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/html/'+onlyfiles[0]) 
 columns = list(df)
 pii_inventory = []
 #d=[]
@@ -59,9 +59,9 @@ for i in range(len(onlyfiles)):
     data_source.append(onlyfiles[i])        
 report = DataFrame(pii_inventory)
 
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/report/mock_report(html).csv')
+report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/mock_report(html).csv')
 
-os.remove(os.path.join(APP_FOLDER,'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html/Mock_report(html).csv'))
+os.remove(os.path.join(APP_FOLDER,'C:/Users/Tandin Dorji/Desktop/PII_Project/files/html/Mock_report(html).csv'))
 
 print(data_source)
 print('[complete]')

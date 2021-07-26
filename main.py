@@ -1,15 +1,7 @@
 import os
 import shutil
-location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/'
+location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/'
 files = os.listdir(location)
-
-# os.mkdir(location+"/csv")
-# os.mkdir(location+"/db")
-# os.mkdir(location+"/doc")
-# os.mkdir(location+"/html")
-# os.mkdir(location+"/pdf")
-# os.mkdir(location+"/report")
-# os.mkdir(location+"/txt")
 
 for file in files:
     if (".xlsx") in file:
@@ -27,14 +19,14 @@ for file in files:
     elif (".txt") in file:
         shutil.move(location+file,location+"txt/"+file)
    
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/csv'
+dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/csv'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.system("python scancsv.py")
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/doc'
+dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/doc'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.mkdir(dir+"/scan")
@@ -43,7 +35,7 @@ if len(directory) != 0:
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/pdf'
+dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/pdf'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.mkdir(dir+"/scan")
@@ -52,7 +44,7 @@ if len(directory) != 0:
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/txt'
+dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/txt'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.mkdir(dir+"/scan")
@@ -61,7 +53,7 @@ if len(directory) != 0:
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/db'
+dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/db'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.mkdir(dir+"/scan")
@@ -70,8 +62,4 @@ if len(directory) != 0:
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-# path ='C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/html'
-# directory= os. listdir(path)
-# if len(directory) > 1:
-#     os.system("python scanweb.py")
 

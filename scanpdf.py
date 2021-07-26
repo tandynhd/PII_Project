@@ -4,7 +4,7 @@ import os
 
 print("Converting .pdf -> .csv ...")
 
-location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/pdf'
+location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/pdf'
 
 onlyfiles = next(os.walk(location))[2]
 
@@ -13,7 +13,7 @@ data_source=[]
 
 for index in range (len(onlyfiles)):
     i = 0
-    PDFFile = open('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/pdf/'+onlyfiles[index], "rb")
+    PDFFile = open('C:/Users/Tandin Dorji/Desktop/PII_Project/files/pdf/'+onlyfiles[index], "rb")
     pdfRead = p2.PdfFileReader(PDFFile)
     while i < pdfRead.getNumPages():
         pageinfo = pdfRead.getPage(i)
@@ -24,7 +24,7 @@ for index in range (len(onlyfiles)):
     data_source.append(onlyfiles[index-1])  
 
 report = pd.DataFrame(PII_Inventory)
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/pdf/scan/Mock_report(pdf).csv')
+report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/pdf/scan/Mock_report(pdf).csv')
 print(data_source)
 print('[complete]')
 
@@ -42,12 +42,12 @@ engine.registry.add_recognizer(customreg.Th_passport_recognizer())
 engine.registry.add_recognizer(customreg.Th_phone_recognizer())
 engine.registry.add_recognizer(customreg.Th_ID_recognizer())
 
-APP_FOLDER = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/pdf/scan'
+APP_FOLDER = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/pdf/scan'
 
 onlyfiles = next(os.walk(APP_FOLDER))[2] #dir is your directory path as string
 
 #text = 'citizen id  083-0174456 AA1254846 1-2001-01756-87-5'
-df = read_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/pdf/scan/'+onlyfiles[0]) 
+df = read_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/pdf/scan/'+onlyfiles[0]) 
 columns = list(df)
 pii_inventory = []
 #d=[]
@@ -91,7 +91,7 @@ for i in range(len(onlyfiles)):
     data_source.append(onlyfiles[i])        
 report = DataFrame(pii_inventory)
 
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/report/mock_report(pdf).csv')
+report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/mock_report(pdf).csv')
 
 print(data_source)
 print('[complete]')

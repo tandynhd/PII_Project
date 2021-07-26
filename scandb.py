@@ -16,7 +16,7 @@ print("Converting .db -> .csv ...")
 # data_entry()
 ##############################################################################
 
-location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/db'
+location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/db'
 
 onlyfiles = next(os.walk(location))[2]
 
@@ -29,7 +29,7 @@ def convertTuple(tup):
     return str
 
 for index in range(len(onlyfiles)):
-    conn = sqlite3.connect('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/db/'+onlyfiles[index])
+    conn = sqlite3.connect('C:/Users/Tandin Dorji/Desktop/PII_Project/files/db/'+onlyfiles[index])
     data_source.append(onlyfiles[index])
     c = conn.cursor()
     
@@ -71,12 +71,12 @@ engine.registry.add_recognizer(customreg.Th_passport_recognizer())
 engine.registry.add_recognizer(customreg.Th_phone_recognizer())
 engine.registry.add_recognizer(customreg.Th_ID_recognizer())
 
-APP_FOLDER = 'C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/db/scan'
+APP_FOLDER = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/db/scan'
 
 onlyfiles = next(os.walk(APP_FOLDER))[2] #dir is your directory path as string
 
 #text = 'citizen id  083-0174456 AA1254846 1-2001-01756-87-5'
-df = read_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/db/scan/'+onlyfiles[0]) 
+df = read_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/db/scan/'+onlyfiles[0]) 
 columns = list(df)
 pii_inventory = []
 #d=[]
@@ -120,7 +120,7 @@ for i in range(len(onlyfiles)):
     data_source.append(onlyfiles[i])        
 report = DataFrame(pii_inventory)
 
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/Mock/report/mock_report(db).csv')
+report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/mock_report(db).csv')
 
 print(data_source)
 print('[complete]')
