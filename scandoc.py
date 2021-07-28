@@ -3,6 +3,8 @@ from docx import Document
 import pandas as pd
 import os
 
+from datetime import datetime
+
 print("Converting .doc -> .csv ...")
 
 location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/doc'
@@ -91,7 +93,10 @@ for i in range(len(onlyfiles)):
     data_source.append(onlyfiles[i])        
 report = DataFrame(pii_inventory)
 
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/mock_report(doc).csv')
+now = datetime.now()
+current_time = now.strftime("dmy%d%m%y-hms%H%M%S")
+
+report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/docreport({0}).csv'.format(current_time))
 
 print(data_source)
 print('[complete]')

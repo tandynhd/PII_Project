@@ -22,12 +22,11 @@
     </div>
     <br>
     <div class="container bg-white p-3 mb-2">
-        <span class = "list">{{data[0]}}</span><br>
-        <span>{{data[1]}}</span><br>
-        <span>{{data[2]}}</span><br>
-        <span>{{data[3]}}</span><br>
-        <span>{{data[4]}}</span><br>
-        <span>{{data[5]}}</span><br>
+        <ul>
+            {%for i in range (0, len)%}
+                <li>{{data[i]}}</li>
+            {%endfor%}
+        </ul>
     </div>
 </div>   
 

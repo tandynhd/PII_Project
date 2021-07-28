@@ -43,7 +43,7 @@ def index():
         reader = csv.reader(file)
         lines = len(list(reader))
         PII_Data.append("There are "+str(lines-1)+" PII data in "+onlyfiles[i])
-    return render_template('index.html', data=PII_Data)
+    return render_template('index.html',len=len(PII_Data), data=PII_Data)
 
 app.config["FILE_UPLOADS"] = "C:/Users/Tandin Dorji/Desktop/PII_Project/files"
 app.config["FILE_EXTENSIONS"] = ["CSV", "XLSX", "DB", "DOCX", "DOC", "PDF", "TXT"]

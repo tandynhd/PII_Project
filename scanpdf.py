@@ -2,6 +2,8 @@ import PyPDF2 as p2
 import pandas as pd
 import os
 
+from datetime import datetime
+
 print("Converting .pdf -> .csv ...")
 
 location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/pdf'
@@ -91,7 +93,10 @@ for i in range(len(onlyfiles)):
     data_source.append(onlyfiles[i])        
 report = DataFrame(pii_inventory)
 
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/mock_report(pdf).csv')
+now = datetime.now()
+current_time = now.strftime("dmy%d%m%y-hms%H%M%S")
+
+report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/pdfreport({0}).csv'.format(current_time))
 
 print(data_source)
 print('[complete]')
