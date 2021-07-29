@@ -28,6 +28,7 @@ STEP 1: INSTALLATION
     - scanpdf.py (line 9)
     - scantxt.py (line 9)
     - scanweb.py (APP_FOLDER: line 15)
+    - main.py (line 3)
     
 STEP 2: RUNNING
 
