@@ -7,15 +7,15 @@ from datetime import datetime
 
 print("Converting .doc -> .csv ...")
 
-location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/doc'
+location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files'
 
-onlyfiles = next(os.walk(location))[2]
+onlyfiles = next(os.walk(location+'/doc'))[2]
 
 PII_Inventory = []
 data_source=[]
 
 for i in range(len(onlyfiles)):
-    document = Document('C:/Users/Tandin Dorji/Desktop/PII_Project/files/doc/'+onlyfiles[i])
+    document = Document(location+'/doc/'+onlyfiles[i])
     #index= 0
     for para in document.paragraphs:
         #index+=1
@@ -26,7 +26,7 @@ for i in range(len(onlyfiles)):
     data_source.append(onlyfiles[i-1])  
     
 report = pd.DataFrame(PII_Inventory)
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/doc/scan/Mock_report(docx).csv')
+report.to_csv(location+'/doc/scan/Mock_report(docx).csv')
 print(data_source)
 print('[complete]')
 
@@ -44,12 +44,12 @@ engine.registry.add_recognizer(customreg.Th_passport_recognizer())
 engine.registry.add_recognizer(customreg.Th_phone_recognizer())
 engine.registry.add_recognizer(customreg.Th_ID_recognizer())
 
-APP_FOLDER = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/doc/scan'
+APP_FOLDER = location
 
-onlyfiles = next(os.walk(APP_FOLDER))[2] #dir is your directory path as string
+onlyfiles = next(os.walk(APP_FOLDER+'/doc/scan'))[2] #dir is your directory path as string
 
 #text = 'citizen id  083-0174456 AA1254846 1-2001-01756-87-5'
-df = read_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/doc/scan/'+onlyfiles[0]) 
+df = read_csv(APP_FOLDER+'/doc/scan/'+onlyfiles[0]) 
 columns = list(df)
 pii_inventory = []
 #d=[]
@@ -57,10 +57,10 @@ pii_categories =[]
 data_source=[]
 pii_type = []
 for i in range(len(onlyfiles)):
-    if ((onlyfiles[i][-5:]) != '.xlsx'):
-        if (os.stat(APP_FOLDER +'/'+onlyfiles[i]).st_size) == 0:
+    if ((onlyfiles[i][-4:]) == '.csv'):
+        if (os.stat(APP_FOLDER +'/doc/scan/'+onlyfiles[i]).st_size) == 0:
             continue
-        df = read_csv(APP_FOLDER +'/'+onlyfiles[i])
+        df = read_csv(APP_FOLDER +'/doc/scan/'+onlyfiles[i])
         for col in columns: 
             for index in df.index: 
                 response = engine.analyze(correlation_id=0,
@@ -74,29 +74,14 @@ for i in range(len(onlyfiles)):
                     'position': "col: {}, row: {}".format(col,index),
                     'confidence': response[0].score,
                     'File': onlyfiles[i]})
-    elif ((onlyfiles[i][-4:]) != '.csv'): 
-        df = read_excel(APP_FOLDER +'/'+onlyfiles[i])
-        for col in columns: 
-            for index in df.index: 
-                response = engine.analyze(correlation_id=0,
-                                        text = str(df[col][index]),
-                                        entities=[],language='en',
-                                        #all_fields=True,
-                                        score_threshold=0.6,)
-                if (response != []):
-                    pii_inventory.append({'type': response[0].entity_type,
-                    'context':str(df[col][index]),
-                    'position': "col: {}, row: {}".format(col,index),
-                    'confidence': response[0].score,
-                    'File': onlyfiles[i]})
-    
+       
     data_source.append(onlyfiles[i])        
 report = DataFrame(pii_inventory)
 
 now = datetime.now()
 current_time = now.strftime("dmy%d%m%y-hms%H%M%S")
 
-report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/docreport({0}).csv'.format(current_time))
+report.to_csv(APP_FOLDER+'/report/docreport({0}).csv'.format(current_time))
 
 print(data_source)
 print('[complete]')

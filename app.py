@@ -15,6 +15,7 @@ from pandas.io.formats.format import IntArrayFormatter
 app = Flask(__name__)
 
 location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/'
+
 if not os.path.exists(location+"files"):
     os.mkdir(location+"files")
 if not os.path.exists(location+"files/csv"):
@@ -34,18 +35,23 @@ if not os.path.exists(location+"files/html"):
 
 @app.route('/')
 def index():
-    location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files/report'
+    #location = 'C:/Users/Tandin Dorji/Desktop/PII_Project/files'
 
-    onlyfiles = next(os.walk(location))[2]
+    onlyfiles = next(os.walk(location+"/files/report"))[2]
     PII_Data = []
     for i in range(len(onlyfiles)):
-        file = open("C:/Users/Tandin Dorji/Desktop/PII_Project/files/report/"+onlyfiles[i])
+        file = open(location+"/files/report/"+onlyfiles[i])
         reader = csv.reader(file)
         lines = len(list(reader))
-        PII_Data.append("There are "+str(lines-1)+" PII data in "+onlyfiles[i])
+        if (lines-1) == 1:
+            PII_Data.append("There is 1 PII in "+onlyfiles[i])
+        elif (lines-1) == 0:
+            PII_Data.append("There is no PII in "+onlyfiles[i])
+        else:
+            PII_Data.append("There are "+str(lines-1)+" PII in "+onlyfiles[i])
     return render_template('index.html',len=len(PII_Data), data=PII_Data)
 
-app.config["FILE_UPLOADS"] = "C:/Users/Tandin Dorji/Desktop/PII_Project/files"
+app.config["FILE_UPLOADS"] = location+"/files"
 app.config["FILE_EXTENSIONS"] = ["CSV", "XLSX", "DB", "DOCX", "DOC", "PDF", "TXT"]
 
 def allowed_files(filename):
@@ -94,7 +100,7 @@ def upload_file():
 
                 report = pd.DataFrame(PII_Inventory)
 
-                report.to_csv('C:/Users/Tandin Dorji/Desktop/PII_Project/files/html/Mock_report(html).csv')
+                report.to_csv(location+'/files/html/Mock_report(html).csv')
 
                 print('[complete]')
                 os.system("python scanweb.py")

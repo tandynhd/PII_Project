@@ -19,14 +19,14 @@ for file in files:
     elif (".txt") in file:
         shutil.move(location+file,location+"txt/"+file)
    
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/csv'
+dir =location+'csv'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.system("python scancsv.py")
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/doc'
+dir =location+'doc'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.mkdir(dir+"/scan")
@@ -35,7 +35,7 @@ if len(directory) != 0:
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/pdf'
+dir =location+'pdf'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.mkdir(dir+"/scan")
@@ -44,7 +44,7 @@ if len(directory) != 0:
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/txt'
+dir =location+'txt'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.mkdir(dir+"/scan")
@@ -53,7 +53,7 @@ if len(directory) != 0:
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
-dir ='C:/Users/Tandin Dorji/Desktop/PII_Project/files/db'
+dir =location+'db'
 directory= os. listdir(dir)
 if len(directory) != 0:
     os.mkdir(dir+"/scan")

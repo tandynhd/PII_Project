@@ -23,9 +23,14 @@
     <br>
     <div class="container bg-white p-3 mb-2">
         <ul>
-            {%for i in range (0, len)%}
-                <li>{{data[i]}}</li>
-            {%endfor%}
+            {%if len==0%}
+                    <li>No reports yet, begin scanning your documents right now!</li>
+            {%endif%}
+            {%if len !=0%}
+                {%for i in range (0, len)%}
+                        <li>{{data[i]}}</li>
+                {%endfor%}
+            {%endif%}
         </ul>
     </div>
 </div>   
