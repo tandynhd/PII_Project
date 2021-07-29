@@ -20,6 +20,14 @@ STEP 1: INSTALLATION
     - pip install sqlalchemy
     - pip install MySQL
     - pip install pymongo
+3) Go to the following py files and change the location to your file's path:
+    - app.py (line 17)
+    - scancsv.py (APP_FOLDER: line 14)
+    - scandb.py (line 21)
+    - scandoc.py (line 10)
+    - scanpdf.py (line 9)
+    - scantxt.py (line 9)
+    - scanweb.py (APP_FOLDER: line 15)
     
 STEP 2: RUNNING
 
